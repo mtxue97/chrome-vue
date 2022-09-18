@@ -1,0 +1,38 @@
+{
+    "manifest_version": 2,
+    "name": "chrome-ext",
+    "description": "",
+    "version": "0.0.1",
+    "icons": {
+        "16": "assets/orange.png",
+        "48": "assets/orange.png",
+        "128": "assets/orange.png"
+    },
+    "options_page": "options.html",
+    "background": { // 会一直常驻的后台JS或后台页面
+        // 2种指定方式，如果指定JS，那么会自动生成一个背景页
+        "page": "background.html"
+        // "scripts": ["js/background.js"]
+    },
+    "browser_action": {
+        "default_popup": "popup.html"
+    },
+    "content_scripts": [
+		{
+			"matches": ["*://*.baidu.com/*"],
+			"js": ["js/content.js"],
+			"run_at": "document_end"
+		}
+	],
+    "permissions": [
+        "activeTab",
+        "downloads",
+        "contextMenus", // 右键菜单
+        "tabs", // 标签
+        "notifications", // 桌面通知
+        "webRequest", // web请求
+        "webRequestBlocking",
+        "storage" // 插件本地存储
+    ],
+    "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'"
+}
