@@ -12,7 +12,8 @@ if (views.length) {
 }
 
 window.chrome.runtime.onMessege.addListener(
-    function(request, sender, sendResponse) {
-        console.log(request, sender, sendResponse)
+    function(message, sender, sendResponse) {
+        console.log(message, sender, sendResponse)
     }
 )
+

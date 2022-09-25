@@ -14,6 +14,8 @@ export default {
       prefix: "",
     };
   },
+  mounted() {
+  },
   methods: {
     test() {
       console.log(111);

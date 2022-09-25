@@ -22,7 +22,11 @@ const copyFiles = [
     {
         from: path.resolve("src/assets"),
         to: path.resolve("dist/assets")
-    }
+    },
+    // {
+    //   from: path.resolve("src/background/index.js"),
+    //   to: `${path.resolve("dist")}/background.js`
+    // }
 ];
 
 // 开发环境将热加载文件复制到dist文件夹

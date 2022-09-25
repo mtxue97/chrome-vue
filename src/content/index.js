@@ -7,24 +7,22 @@ function selectText() {
   }
 }
 
-document.onmouseup = function (e) {
-  console.log(e,selectText());
+document.onmouseup = function () {
   let text = selectText().trim();
   if (text.length > 0 && !result.includes(text)) {
     result.push(text);
     console.log(result);
     window.chrome.extension.sendMessage({
       type: 'add'
+      // ...
     })
 
   }
 }
-
-
-// window.chrome.tabs.executeScript(null, {
-//   code:"console.log(window.getSelection().toString());"
-// })
-
+// 把popup以iframe的形式注入页面
+// const popup = document.createElement("iframe");
+// popup.src = window.chrome.runtime.getURL("popup.html");
+// document.body.appendChild(popup);
 
 
 // let opts = {

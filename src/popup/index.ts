@@ -13,3 +13,9 @@ new Vue({
     return createElement(AppComponent);
   }
 });
+
+window.chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
+  sendResponse({
+      data: "I am fine, thank you. How is life in the background?"
+  }); 
+});
